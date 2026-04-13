@@ -19,7 +19,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: volta-cli/action@v4
       - run: yarn
       - name: Build
@@ -49,7 +49,7 @@ jobs:
         # - macos-latest
         - windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: volta-cli/action@v4
       - run: yarn
       - name: Build
@@ -66,7 +66,7 @@ jobs:
         node-version: [20]
         # node-version: [16.x, 18.x, 20.x]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: volta-cli/action@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -105,7 +105,7 @@ jobs:
 
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: volta-cli/action@v4
       - run: yarn
       - name: Installing TypeScript ${{ matrix.typescript-version }}
@@ -134,7 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: volta-cli/action@v4
       - run: yarn
       - name: Build
