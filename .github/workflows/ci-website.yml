@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: volta-cli/action@v5
       - run: yarn
       - name: Build
         run: yarn build
@@ -50,7 +50,7 @@ jobs:
         - windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: volta-cli/action@v5
       - run: yarn
       - name: Build
         run: yarn build
@@ -67,7 +67,7 @@ jobs:
         # node-version: [16.x, 18.x, 20.x]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: volta-cli/action@v5
         with:
           node-version: ${{ matrix.node-version }}
           yarn-version: 3.6.4
@@ -106,7 +106,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: volta-cli/action@v5
       - run: yarn
       - name: Installing TypeScript ${{ matrix.typescript-version }}
         run: yarn workspaces foreach --exclude hello-ts --exclude '@mike-north/typescript-courses' -vpi add -D typescript@${{ matrix.typescript-version}}
@@ -135,7 +135,7 @@ jobs:
     if: success() && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: volta-cli/action@v5
       - run: yarn
       - name: Build
         run: yarn workspace website run build-prod
